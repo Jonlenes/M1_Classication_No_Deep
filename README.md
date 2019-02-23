@@ -55,24 +55,22 @@ Amount of data: 30250
 | train 3      | 58%                           | 33%                               | 
 | train 4      | 40%                           | 27%                               | 
 
+</p>
 
 ### Improving the model
+**Test 1:** Val:87% , Kaggle: 39%.
 
-Abaixo serão apresentados diversos testes realizados na obtenção de features adicionais. Em cada teste, ele será considerando no modelo final se possuir resultado maior ou igual a obtido anteriomente no Kaggle.
+**Test 2:** Val:87% , Kaggle: 40%.
 
-**Teste 1:** todos os features extraído utilizando a DWT (seção Wavelets) foram obtidos utilizando a imagem original. Nesse teste, o mesmo processo foi realizado com o ruído da imagem, dobrando a quantidade de features (216 features). Treinando esse modelo obtém-se uma precisão de 87% e 39%, na validação e no Kaggle respectivamente. Esses novos features serão utilizados.
+**Test 3:** Val:85% , Kaggle: 47%.
 
-**Teste 2:** aplicação do LBP (Seção LBP) sobre a imagem original em tons de cinza: 86% na validação, 40.3% no Kaggle, 26 novos features. Aplicação do LBP no ruído em tons de cinza: 85% na validação e 41.27% no Kaggle, 26 novos features. Aplicação do LBP na imagem original e no ruído (ambas em tons de cinza): 87% na validação e 40.2% no Kaggle, 52 novos features. Nesse caso foi considerado o que obteve maior precisão no Kaggle.
+**Test 4:** Val:82% , Kaggle: 40%.
 
-**Teste 3:** no teste anterior foi obtida a melhor precisão no Kaggle quando aplicando o LBP somente no ruído em tons de cinza, então uma possibilidade de melhorar é fazer a aplicação do LBP por canal do ruído. Feito isso, tempos: 85% na validação, 47% no Kaggle, 78 novos features. Esses features foram considerando substituindo os features do Teste 2 e totalizando 294 features.
+**Test 5:** Val:86% , Kaggle: 47%.
 
-**Teste 4:** neste teste foi aplicado o LBP para cada vetor de coeficiente da DTW (seção Wavelets), obtendo: 82% na validação, 40% no Kaggle e 702 novos features. Como o resultado foi inferior ao do Teste 3, estes novos features foram descartados.
+**Test 6:** Val:87% , Kaggle: 44%.
 
-**Teste 5:** no Teste 3, cada aplicação do LBP extrai 26 features, conforme mencionado na seção LBP. O Teste 5 consiste em não montar o histograma no LBP, e apenas extrair as estatísticas na imagem retornada no LBP, ou seja, cada aplicação do LBP agora irá extrair 4 features ( mean, variance, skew e kurtosis). Com isso o total de features foi reduzido para 228, obtendo 86.7% de precisão na validação e 47% de precisão no Kaggle. Houve um pequeno aumento na precisão da validação em relação ao ultimo teste considerado (Teste 3), logo esse teste foi considerados.
-
-**Teste 6:** o teste 4 foi descartado por não aumentar a precisão, no entanto, no intuito de inclui-lo no modelo, foi realizado o mesmo procedimento do Teste 5. A precisão obtida foi 87.45% na validação  e 44% no Kaggle. Mais uma vez, o teste foi descartado.
-
-**Teste 7:** o ultimo teste consistiu em adicionar a extração de uma nova estatística no conjunto de funções que extrair as estatística de uma imagem/vetor considerados neste trabalho. Foi adicionar o calculo do desvio padrão, essa alteração obteve 89.45% na validação e 50.85% no Kaggle, sendo este o ultimo teste realizando na extração de features da imagem, com um total de 348 features.
+**Test 7:** Val:89% , Kaggle: 51%.
 
 
 ## Model complexity
